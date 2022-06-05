@@ -15,6 +15,15 @@ namespace IPMO_PracticeManagementWebApp.Views
     {
 
         /// <summary>
+        /// ValidationPanelForReferringSchoolInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ValidationPanelForReferringSchoolInfo;
+
+        /// <summary>
         /// AttachmentButton control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,24 @@ namespace IPMO_PracticeManagementWebApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AttachmentButton;
+
+        /// <summary>
+        /// ReferringSchoolInfoPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ReferringSchoolInfoPlaceHolder;
+
+        /// <summary>
+        /// SchoolNameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SchoolNameLabel;
 
         /// <summary>
         /// SchoolNameTextBox control.
@@ -33,6 +60,33 @@ namespace IPMO_PracticeManagementWebApp.Views
         protected global::System.Web.UI.WebControls.TextBox SchoolNameTextBox;
 
         /// <summary>
+        /// AddressLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AddressLabel;
+
+        /// <summary>
+        /// AddressTextArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AddressTextArea;
+
+        /// <summary>
+        /// TelephoneNumberLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TelephoneNumberLabel;
+
+        /// <summary>
         /// TelephoneNumberTextBox control.
         /// </summary>
         /// <remarks>
@@ -40,6 +94,15 @@ namespace IPMO_PracticeManagementWebApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TelephoneNumberTextBox;
+
+        /// <summary>
+        /// EmailLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmailLabel;
 
         /// <summary>
         /// EmailTextBox control.
@@ -51,6 +114,15 @@ namespace IPMO_PracticeManagementWebApp.Views
         protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
 
         /// <summary>
+        /// ContactPersonLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ContactPersonLabel;
+
+        /// <summary>
         /// ContactPersonTextBox control.
         /// </summary>
         /// <remarks>
@@ -58,6 +130,15 @@ namespace IPMO_PracticeManagementWebApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ContactPersonTextBox;
+
+        /// <summary>
+        /// EmailContactLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmailContactLabel;
 
         /// <summary>
         /// EmailContactTextBox control.
@@ -69,6 +150,15 @@ namespace IPMO_PracticeManagementWebApp.Views
         protected global::System.Web.UI.WebControls.TextBox EmailContactTextBox;
 
         /// <summary>
+        /// ExplainAgreementLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExplainAgreementLabel;
+
+        /// <summary>
         /// ExplainAgreementTextBox control.
         /// </summary>
         /// <remarks>
@@ -78,6 +168,15 @@ namespace IPMO_PracticeManagementWebApp.Views
         protected global::System.Web.UI.WebControls.TextBox ExplainAgreementTextBox;
 
         /// <summary>
+        /// ReferalNameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ReferalNameLabel;
+
+        /// <summary>
         /// ReferalNameTextBox control.
         /// </summary>
         /// <remarks>
@@ -85,5 +184,32 @@ namespace IPMO_PracticeManagementWebApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ReferalNameTextBox;
+
+        /// <summary>
+        /// PassportNumberLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PassportNumberLabel;
+
+        /// <summary>
+        /// PassportNumberTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PassportNumberTextBox;
+
+        /// <summary>
+        /// ReferringSchoolInfoButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ReferringSchoolInfoButton;
     }
 }

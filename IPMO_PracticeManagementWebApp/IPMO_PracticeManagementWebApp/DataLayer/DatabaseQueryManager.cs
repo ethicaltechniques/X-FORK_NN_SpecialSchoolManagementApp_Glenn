@@ -1,4 +1,5 @@
 ﻿using IPMO_PracticeManagementWebApp.Model;
+using System.Collections.Generic;
 using System.Data;
 
 namespace IPMO_PracticeManagementWebApp.DataLayer
@@ -113,7 +114,7 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
             return databaseManager.GetInformationHeaders(query);
         }
 
-        public DataTable QueryToRetrieveDataFromRiskFactors(string pupilUniqueId="")
+        public DataTable QueryToRetrieveDataFromRiskFactors(string pupilUniqueId = "")
         {
             string query = string.Empty;
 
@@ -129,7 +130,7 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
             return databaseManager.GetInformationHeaders(query);
         }
 
-        public DataTable QueryToRetrieveDataFromSchoolResults(string pupilUniqueId="")
+        public DataTable QueryToRetrieveDataFromSchoolResults(string pupilUniqueId = "")
         {
             string query = string.Empty;
 
@@ -143,6 +144,32 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
             }
 
             return databaseManager.GetInformationHeaders(query);
+        }
+
+        public string QueryToAddUpdateDeleteDataForField(List<FieldModel> fieldModelList, string operation = "")
+        {
+            string query = string.Empty;
+            string message = string.Empty;
+
+            foreach (var fieldModel in fieldModelList)
+            {
+                switch (operation)
+                {
+                    case "Add":
+                        query = "insert into IpmoInformation values('" + fieldModel.FieldName + "','" + fieldModel.FieldValue + "','" + fieldModel.StudentUniqueId + "')";
+                        break;
+                    case "Update":
+                        query = "update table IpmoInformation set FieldName = '" + fieldModel.FieldName + "', FieldValue = '" + fieldModel.FieldValue + "',StudentUniqueId = '" + fieldModel.StudentUniqueId + "'";
+                        break;
+                    case "Delete":
+                        query = "delete from IpmoInformation where StudentUniqueId = '" + fieldModel.StudentUniqueId + "'";
+                        break;
+                }
+
+                message = databaseManager.AddUpdateDeleteData(query).Equals("Success") ? "Data for Pupil Registration added successfully." : "Error while adding data for Pupil Registration."; ;
+            }
+
+            return message;
         }
     }
 }
