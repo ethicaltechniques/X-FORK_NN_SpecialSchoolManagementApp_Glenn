@@ -6,13 +6,13 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - IPMO Application</title>
+    <title><%# Page.Title %> - IPMO Application</title>
 
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
+        <%# Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -51,13 +51,25 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/Views/RegisterPupil.aspx">Register Pupil</a></li>
+                        <%--<li><a runat="server" href="~/Views/RegisterPupil.aspx">Register Pupil</a></li>
                         <li><a runat="server" href="~/Views/RiskFactors.aspx">Risk Factors</a></li>
                         <li><a runat="server" href="~/Views/SchoolResults.aspx">School Results</a></li>
                         <li><a runat="server" href="~/Views/ViewPupilData.aspx">View Pupil Data</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                        </ul>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>--%>
+
+                        <li><a runat="server" href="~/Views/UploadApplicationInfo.aspx">Upload Application Info</a></li>
+                        <li><a runat="server" href="~/Views/GeneralPupilInfo.aspx">General Pupil Info</a></li>
+                        <li><a runat="server" href="~/Views/RegisterPupilInfo.aspx">Register Pupil Info</a></li>
+                        <li><a runat="server" href="~/Views/ReferringSchoolInfo.aspx">Referring School Info</a></li>
+                        <li><a runat="server" href="~/Views/PupilSchoolHistory.aspx">Pupil School History</a></li>
+                        <li><a runat="server" href="~/Views/PupilAidHistory.aspx">Pupil Aid History</a></li>
+                        <li><a runat="server" href="~/Views/ProtectiveRiskFactors.aspx">Protective/Risk Factors</a></li>
+                        <li><a runat="server" href="~/Views/GoalMeans.aspx">Goals - Means (Plan)</a></li>
+                        <li><a runat="server" href="~/Views/RegistrationOfActionsAndFunctioning.aspx">Registration Of Actions And Functioning</a></li>
+                        <li><a runat="server" href="~/Views/ResultsAppliedMeans.aspx">Results Applied Means</a></li>
+                        <li><a runat="server" href="~/Views/ConclusionImplication.aspx">Conclusion/Implication</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -66,7 +78,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - IPMO Application</p>
+                <p>&copy; <%# DateTime.Now.Year %> - IPMO Application</p>
             </footer>
         </div>
 
