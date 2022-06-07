@@ -40,7 +40,7 @@
                             }
                             data.push(alldata);
                         });
-                        console.log(data);  
+                        console.log(data);
                         return data;
                     }
                     $("#btnSubmit").click(function () {
@@ -84,16 +84,43 @@
                 <br />
 
                 <table class="table" id="maintable">
-                    <tbody>
-                        <tr class="data-contact-person">
-                            <td>
-                                <input id="passportNumberField" type="text" name="f-name01" class="form-control f-name01" value="Passport Number" /></td>
-                            <td>
-                                <input type="text" id="passportNumberValue" name="l-name01" class="form-control l-name01" /></td>
+                    <thead>
+                        <tr>
                             <td>
                                 <button type="button" id="btnAdd" class="btn btn-xs btn-primary classAdd">+ Fields</button>
                             </td>
                         </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="data-contact-person">
+                            <td>
+                                <input id="passportNumberField" type="text" name="f-name01" class="form-control f-name01" value="Passport Number" />
+                            </td>
+                            <td>
+                                <input type="text" id="passportNumberValue" name="l-name01" class="form-control l-name01" />
+                            </td>
+                        </tr>
+                        <tr class="data-contact-person">
+                            <td>
+                                <input id="primaryEducationField" type="text" name="f-name02" class="form-control f-name01" value="Primary Education" />
+                            </td>
+                            <td>
+                                <textarea name="l-name02" class="form-control l-name01" cols="20" rows="2"></textarea>
+                            </td>
+                        </tr>
+                        <tr class="data-contact-person">
+                            <td>
+                                <input id="secondaryEducationField" type="text" name="f-name03" class="form-control f-name01" value="Secondary Education" />
+                            </td>
+                            <td>
+                                <textarea name="l-name03" class="form-control l-name01" cols="20" rows="2"></textarea>
+                            </td>
+                        </tr>
+                        <%--<tr class="data-contact-person">
+                            <td>
+                                <button type="button" id="btnAdd" class="btn btn-xs btn-primary classAdd">+ Fields</button>
+                            </td>
+                        </tr>--%>
                     </tbody>
                 </table>
                 <button type="button" id="btnSubmit" class="btn btn-primary btn-md pull-right btn-sm">Submit</button>
