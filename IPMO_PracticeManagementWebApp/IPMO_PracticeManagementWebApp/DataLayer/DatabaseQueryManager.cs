@@ -157,16 +157,17 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
                 {
                     case "Add":
                         query = "insert into IpmoInformation values('" + fieldModel.FieldName + "','" + fieldModel.FieldValue + "','" + fieldModel.StudentUniqueId + "')";
+                        message = databaseManager.AddUpdateDeleteData(query).Equals("Success") ? "Data added successfully" : "Error while adding data";
                         break;
                     case "Update":
                         query = "update table IpmoInformation set FieldName = '" + fieldModel.FieldName + "', FieldValue = '" + fieldModel.FieldValue + "',StudentUniqueId = '" + fieldModel.StudentUniqueId + "'";
+                        message = databaseManager.AddUpdateDeleteData(query).Equals("Success") ? "Data updated successfully" : "Error while updating data";
                         break;
                     case "Delete":
                         query = "delete from IpmoInformation where StudentUniqueId = '" + fieldModel.StudentUniqueId + "'";
+                        message = databaseManager.AddUpdateDeleteData(query).Equals("Success") ? "Data deleted successfully" : "Error while deleting data";
                         break;
                 }
-
-                message = databaseManager.AddUpdateDeleteData(query).Equals("Success") ? "Data for Pupil Registration added successfully." : "Error while adding data for Pupil Registration."; ;
             }
 
             return message;
