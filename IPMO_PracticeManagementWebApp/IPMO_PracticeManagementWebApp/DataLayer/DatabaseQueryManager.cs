@@ -1,6 +1,8 @@
 ﻿using IPMO_PracticeManagementWebApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace IPMO_PracticeManagementWebApp.DataLayer
 {
@@ -156,11 +158,11 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
                 switch (operation)
                 {
                     case "Add":
-                        query = "insert into IpmoInformation values('" + fieldModel.FieldName + "','" + fieldModel.FieldValue + "','" + fieldModel.StudentUniqueId + "')";
+                        query = "insert into IpmoInformation values('" + fieldModel.FieldName + "','" + fieldModel.FieldValue + "','" + fieldModel.StudentUniqueId + "','" + fieldModel.FormName + "')";
                         message = databaseManager.AddUpdateDeleteData(query).Equals("Success") ? "Data added successfully" : "Error while adding data";
                         break;
                     case "Update":
-                        query = "update table IpmoInformation set FieldName = '" + fieldModel.FieldName + "', FieldValue = '" + fieldModel.FieldValue + "',StudentUniqueId = '" + fieldModel.StudentUniqueId + "'";
+                        query = "update IpmoInformation set FieldName = '" + fieldModel.FieldName + "', FieldValue = '" + fieldModel.FieldValue + "',StudentUniqueId = '" + fieldModel.StudentUniqueId + "',FormName = '" + fieldModel.FormName + "' where FormName = '" + fieldModel.FormName + "' and StudentUniqueId = '" + fieldModel.StudentUniqueId + "' and FieldName = '" + fieldModel.FieldName + "'";
                         message = databaseManager.AddUpdateDeleteData(query).Equals("Success") ? "Data updated successfully" : "Error while updating data";
                         break;
                     case "Delete":
@@ -171,6 +173,25 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
             }
 
             return message;
+        }
+
+        public List<FieldModel> QueryToGetDataForField(string uniqueId, string formName)
+        {
+            List<FieldModel> fieldNameAndValue = new List<FieldModel>();
+
+            var query = "select * from IpmoInformation where StudentUniqueId = '" + uniqueId + "' and FormName = '" + formName + "'";
+            var infoDataTable = databaseManager.GetInformationHeaders(query);
+
+            fieldNameAndValue = (from rw in infoDataTable.AsEnumerable()
+                                 select new FieldModel
+                                 {
+                                     FieldName = Convert.ToString(rw["FieldName"]),
+                                     FieldValue = Convert.ToString(rw["FieldValue"]),
+                                     StudentUniqueId = Convert.ToString(rw["StudentUniqueId"]),
+                                     FormName = Convert.ToString(rw["FormName"])
+                                 }).ToList<FieldModel>();
+
+            return fieldNameAndValue;
         }
     }
 }

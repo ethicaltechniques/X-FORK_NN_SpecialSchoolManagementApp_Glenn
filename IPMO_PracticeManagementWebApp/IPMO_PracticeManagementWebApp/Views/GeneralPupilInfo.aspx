@@ -42,7 +42,6 @@
             <p>
                 <h5>
                     <asp:Label ID="AddressLabel" runat="server" Text="Address"></asp:Label></h5>
-                <%--  <textarea id="AddressTextArea" cols="20" rows="2"></textarea>--%>
                 <asp:TextBox ID="AddressTextArea" runat="server" TextMode="MultiLine" Rows="2" Columns="20"></asp:TextBox>
             </p>
             <p>
@@ -69,6 +68,11 @@
         <p>
             <asp:Button ID="GeneralPupilInfoButton" runat="server" Text="Submit General Pupil Info" OnClick="GeneralPupilInfoButton_Click" />
         </p>
-
+        <p>
+            <asp:Button ID="GeneralPupilInfoViewButton" runat="server" Text="View General Pupil Info" OnClick="GeneralPupilInfoViewButton_Click" />
+        </p>
+        <p>
+            <asp:Button ID="GeneralPupilInfoUpdateButton" runat="server" Text="Update General Pupil Info" OnClick="GeneralPupilInfoUpdateButton_Click" />
+        </p>
     </div>
 </asp:Content>

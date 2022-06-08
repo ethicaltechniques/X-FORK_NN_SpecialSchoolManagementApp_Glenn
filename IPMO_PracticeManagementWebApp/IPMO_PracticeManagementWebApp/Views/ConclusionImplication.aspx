@@ -159,7 +159,6 @@
                 <table class="table">
                     <thead>
                         <tr>
-                           <%-- <td><span class="label label-warning">Date and Place</span></td>--%>
                         </tr>
                     </thead>
                     <tbody>
