@@ -53,7 +53,12 @@
                             contentType: 'application/json; charset=utf-8',
                             data: JSON.stringify({ 'allData': data }),
                             success: function (message) {
-                                $("#validationMessage").html('<div class="alert alert-success">' + message.d + '</div>');
+                                if (message.d.includes("Error")) {
+                                    $("#validationMessage").html('<div class="alert alert-danger">' + message.d + '</div>');
+                                }
+                                else {
+                                    $("#validationMessage").html('<div class="alert alert-success">' + message.d + '</div>');
+                                }
                             },
                             error: function (message) {
                                 $("#validationMessage").html('<div class="alert alert-danger">' + message.d + '</div>');
@@ -115,7 +120,7 @@
                             <td>
                                 <textarea name="l-name03" class="form-control l-name01" cols="20" rows="2"></textarea>
                             </td>
-                        </tr>                        
+                        </tr>
                     </tbody>
                 </table>
                 <button type="button" id="btnSubmit" class="btn btn-primary btn-md pull-right btn-sm">Submit</button>

@@ -1,8 +1,12 @@
-﻿using IPMO_PracticeManagementWebApp.Utility;
+﻿using IPMO_PracticeManagementWebApp.DataLayer;
+using IPMO_PracticeManagementWebApp.Model;
+using IPMO_PracticeManagementWebApp.Utility;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -15,11 +19,15 @@ namespace IPMO_PracticeManagementWebApp.Views
 
         }
 
-        protected void FieldsButton_Click(object sender, EventArgs e)
+        [WebMethod]
+        public static string SaveData(string allData)
         {
-            UiUtility uUtil = new UiUtility();
-            var result = uUtil.CreateDynamicTextbox("txt_1");
-            GoalMeansPlaceHolder.Controls.Add(result);
+            var serializeData = JsonConvert.DeserializeObject<List<FieldModel>>(allData);
+            var fieldList = serializeData.ToList<FieldModel>();
+            DatabaseQueryManager dqm = new DatabaseQueryManager();
+            var status = dqm.QueryToAddUpdateDeleteDataForField(fieldList, "Add");
+
+            return status;
         }
     }
 }

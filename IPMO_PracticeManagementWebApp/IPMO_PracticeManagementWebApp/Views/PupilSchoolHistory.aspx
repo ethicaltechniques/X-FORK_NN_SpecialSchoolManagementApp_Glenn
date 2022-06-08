@@ -53,7 +53,12 @@
                             contentType: 'application/json; charset=utf-8',
                             data: JSON.stringify({ 'allData': data }),
                             success: function (message) {
-                                $("#validationMessage").html('<div class="alert alert-success">' + message.d + '</div>');
+                                if (message.d.includes("Error")) {
+                                    $("#validationMessage").html('<div class="alert alert-danger">' + message.d + '</div>');
+                                }
+                                else {
+                                    $("#validationMessage").html('<div class="alert alert-success">' + message.d + '</div>');
+                                }
                             },
                             error: function (message) {
                                 $("#validationMessage").html('<div class="alert alert-danger">' + message.d + '</div>');
