@@ -29,7 +29,6 @@
             <p>
                 <h5>
                     <asp:Label ID="AddressLabel" runat="server" Text="Address"></asp:Label></h5>
-                <%--<textarea id="AddressTextArea1" cols="20" rows="2"></textarea>--%>
                 <asp:TextBox ID="AddressTextArea" runat="server" TextMode="MultiLine" Rows="2" Columns="20"></asp:TextBox>
             </p>
             <p>
@@ -72,6 +71,12 @@
 
         <p>
             <asp:Button ID="ReferringSchoolInfoButton" runat="server" Text="Submit Referring School Info" OnClick="ReferringSchoolInfoButton_Click" />
+        </p>
+        <p>
+            <asp:Button ID="ReferringSchoolInfoViewButton" runat="server" Text="View Referring School Info" OnClick="ReferringSchoolInfoViewButton_Click" />
+        </p>
+        <p>
+            <asp:Button ID="ReferringSchoolInfoUpdateButton" runat="server" Text="Update Referring School Info" OnClick="ReferringSchoolInfoUpdateButton_Click" />
         </p>
     </div>
 

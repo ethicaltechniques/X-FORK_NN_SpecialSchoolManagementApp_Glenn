@@ -32,17 +32,20 @@
                             var fieldName = $(this).find('.f-name01').val();
                             var fieldValue = $(this).find('.l-name01').val();
                             var passportNumber = $('#passportNumberValue').val();
+                            var formName = "Pupil School History";
 
                             var alldata = {
                                 'FieldName': fieldName,
                                 'FieldValue': fieldValue,
-                                'StudentUniqueId': passportNumber
+                                'StudentUniqueId': passportNumber,
+                                'FormName': formName
                             }
                             data.push(alldata);
                         });
                         console.log(data);
                         return data;
                     }
+
                     $("#btnSubmit").click(function () {
                         var data = JSON.stringify(getAllData());
 
@@ -65,10 +68,43 @@
                             }
                         });
                     });
+
+                    $("#btnView").click(function () {
+                        var data = JSON.stringify(getAllData());
+
+                        $.ajax({
+                            url: 'PupilSchoolHistory.aspx/GetData',
+                            type: 'POST',
+                            dataType: 'json',
+                            contentType: 'application/json; charset=utf-8',
+                            data: JSON.stringify({ 'allData': data }),
+                            success: function (response) {
+                                //if (message.d.includes("Error")) {
+                                //    $("#validationMessage").html('<div class="alert alert-danger">' + message.d + '</div>');
+                                //}
+                                //else {
+                                //    $("#validationMessage").html('<div class="alert alert-success">' + message.d + '</div>');
+                                //}
+
+                                for (let i = 0; i < response.d.length; i++) {
+                                    var rowCount = $('.data-contact-person').length + 1;
+                                    var contactdiv = '<tr class="data-contact-person">' +
+                                        '<td><input type="text" name="f-name' + rowCount + '" class="form-control f-name01" value="' + response.d[i].FieldName + '" /></td>' +
+                                        '<td><textarea name="l-name' + rowCount + '" class="form-control l-name01" cols="20" rows="2" value="' + response.d[i].FieldValue + '" /></td>' +
+                                        '<td><button type="button" id="btnDelete" class="deleteContact btn btn btn-danger btn-xs">Remove</button></td>' +
+                                        '</tr>';
+                                    $('#maintable').append(contactdiv);
+                                }
+                            },
+                            error: function (response) {
+                                $("#validationMessage").html('<div class="alert alert-danger">' + response + '</div>');
+                            }
+                        });
+                    });
                 });
             </script>
-
         </head>
+
         <body>
 
             <div class="container">
@@ -121,14 +157,11 @@
                                 <textarea name="l-name03" class="form-control l-name01" cols="20" rows="2"></textarea>
                             </td>
                         </tr>
-                        <%--<tr class="data-contact-person">
-                            <td>
-                                <button type="button" id="btnAdd" class="btn btn-xs btn-primary classAdd">+ Fields</button>
-                            </td>
-                        </tr>--%>
                     </tbody>
                 </table>
                 <button type="button" id="btnSubmit" class="btn btn-primary btn-md pull-right btn-sm">Submit</button>
+                <button type="button" id="btnView" class="btn btn-primary btn-md pull-right btn-sm">View</button>
+                <button type="button" id="btnUpdate" class="btn btn-primary btn-md pull-right btn-sm">Update</button>
             </div>
         </body>
     </form>

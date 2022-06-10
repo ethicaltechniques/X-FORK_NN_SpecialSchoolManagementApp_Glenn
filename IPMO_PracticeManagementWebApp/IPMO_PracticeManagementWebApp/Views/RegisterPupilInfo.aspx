@@ -70,6 +70,12 @@
             <asp:Button ID="RegisterPupilInfoButton" runat="server" Text="Register Pupil Info" OnClick="RegisterPupilInfoButton_Click" />
 
         </p>
+         <p>
+            <asp:Button ID="RegisterPupilInfoViewButton" runat="server" Text="View Registered Pupil Info" OnClick="RegisterPupilInfoViewButton_Click" />
+        </p>
+        <p>
+            <asp:Button ID="RegisterPupilInfoUpdateButton" runat="server" Text="Update Registered Pupil Info" OnClick="RegisterPupilInfoUpdateButton_Click" />
+        </p>
 
     </div>
 
