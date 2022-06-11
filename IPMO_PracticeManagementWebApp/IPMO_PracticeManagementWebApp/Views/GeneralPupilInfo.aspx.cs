@@ -92,7 +92,14 @@ namespace IPMO_PracticeManagementWebApp.Views
             DatabaseQueryManager dqm = new DatabaseQueryManager();
             var data = dqm.QueryToGetDataForField(PassportNumberTextBox.Text.Trim(), "General Pupil Info");
 
-            PopulateData(data);
+            if (data.Count > 0)
+            {
+                PopulateData(data);
+            }
+            else
+            {
+                ValidationMessage("Error: General Pupil Info with the Passport Number Provided was Not Found");
+            }
         }
 
         private void PopulateData(List<FieldModel> data)

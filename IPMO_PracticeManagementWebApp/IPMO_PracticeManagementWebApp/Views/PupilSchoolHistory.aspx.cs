@@ -39,5 +39,16 @@ namespace IPMO_PracticeManagementWebApp.Views
 
             return fmList;
         }
+
+        [WebMethod]
+        public static string UpdateData(string allData)
+        {
+            var serializeData = JsonConvert.DeserializeObject<List<FieldModel>>(allData);
+            var fieldList = serializeData.ToList<FieldModel>();
+            DatabaseQueryManager dqm = new DatabaseQueryManager();
+            var status = dqm.QueryToAddUpdateDeleteDataForField(fieldList, "Update");
+
+            return status;
+        }
     }
 }

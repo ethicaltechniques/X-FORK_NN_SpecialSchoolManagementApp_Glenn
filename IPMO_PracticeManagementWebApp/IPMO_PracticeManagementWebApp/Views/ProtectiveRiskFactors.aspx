@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <form id="form1">
+
         <head>
             <title>Form for Protective/Risk Factor</title>
             <meta charset="utf-8" />
@@ -32,17 +33,20 @@
                             var fieldName = $(this).find('.f-name01').val();
                             var fieldValue = $(this).find('.l-name01').val();
                             var passportNumber = $('#passportNumberValue').val();
+                            var formName = "Protective Risk Factor";
 
                             var alldata = {
                                 'FieldName': fieldName,
                                 'FieldValue': fieldValue,
-                                'StudentUniqueId': passportNumber
+                                'StudentUniqueId': passportNumber,
+                                'FormName': formName
                             }
                             data.push(alldata);
                         });
                         console.log(data);
                         return data;
                     }
+
                     $("#btnSubmit").click(function () {
                         var data = JSON.stringify(getAllData());
 
@@ -65,10 +69,78 @@
                             }
                         });
                     });
+
+                    $("#btnView").click(function () {
+                        var data = JSON.stringify(getAllData());
+
+                        $.ajax({
+                            url: 'ProtectiveRiskFactors.aspx/GetData',
+                            type: 'POST',
+                            dataType: 'json',
+                            contentType: 'application/json; charset=utf-8',
+                            data: JSON.stringify({ 'allData': data }),
+                            success: function (response) {
+
+                                if (response.d.length > 0) {
+                                    for (let i = 0; i < response.d.length; i++) {
+
+                                        if (response.d[i].FieldName === "Passport Number") {
+                                            $("#passportNumberValue").val(response.d[i].FieldValue);
+                                        }
+                                        else if (response.d[i].FieldName === "Protective Factor") {
+                                            $("#protectiveFactorsValue").val(response.d[i].FieldValue);
+                                        }
+                                        else if (response.d[i].FieldName === "Risk Factors") {
+                                            $("#riskFactorsValue").val(response.d[i].FieldValue);
+                                        }
+                                        else {
+                                            var rowCount = $('.data-contact-person').length + 1;
+                                            var contactdiv = '<tr class="data-contact-person">' +
+                                                '<td><input type="text" name="f-name' + rowCount + '" class="form-control f-name01" value="' + response.d[i].FieldName + '" /></td>' +
+                                                '<td><textarea name="l-name' + rowCount + '" class="form-control l-name01" cols="20" rows="2">' + response.d[i].FieldValue + '</textarea></td>' +
+                                                '<td><button type="button" id="btnDelete" class="deleteContact btn btn btn-danger btn-xs">Remove</button></td>' +
+                                                '</tr>';
+
+                                            $('#maintable').append(contactdiv);
+                                        }
+                                    }
+                                }
+                                else {
+                                    $("#validationMessage").html('<div class="alert alert-danger">There is no pupil with the Passport Number provided</div>');
+                                }
+                            },
+                            error: function (response) {
+                                $("#validationMessage").html('<div class="alert alert-danger">' + response.d + '</div>');
+                            }
+                        });
+                    });
+
+                    $("#btnUpdate").click(function () {
+                        var data = JSON.stringify(getAllData());
+
+                        $.ajax({
+                            url: 'ProtectiveRiskFactors.aspx/UpdateData',
+                            type: 'POST',
+                            dataType: 'json',
+                            contentType: 'application/json; charset=utf-8',
+                            data: JSON.stringify({ 'allData': data }),
+                            success: function (message) {
+                                if (message.d.includes("Error")) {
+                                    $("#validationMessage").html('<div class="alert alert-danger">' + message.d + '</div>');
+                                }
+                                else {
+                                    $("#validationMessage").html('<div class="alert alert-success">' + message.d + '</div>');
+                                }
+                            },
+                            error: function (message) {
+                                $("#validationMessage").html('<div class="alert alert-danger">' + message.d + '</div>');
+                            }
+                        });
+                    });
                 });
             </script>
-
         </head>
+
         <body>
 
             <div class="container">
@@ -110,7 +182,7 @@
                                 <input id="protectiveFactorsField" type="text" name="f-name02" class="form-control f-name01" value="Protective Factor" />
                             </td>
                             <td>
-                                <textarea name="l-name02" class="form-control l-name01" cols="20" rows="2"></textarea>
+                                <textarea id="protectiveFactorsValue" name="l-name02" class="form-control l-name01" cols="20" rows="2"></textarea>
                             </td>
                         </tr>
                         <tr class="data-contact-person">
@@ -118,12 +190,20 @@
                                 <input id="riskFactorsField" type="text" name="f-name03" class="form-control f-name01" value="Risk Factors" />
                             </td>
                             <td>
-                                <textarea name="l-name03" class="form-control l-name01" cols="20" rows="2"></textarea>
+                                <textarea id="riskFactorsValue" name="l-name03" class="form-control l-name01" cols="20" rows="2"></textarea>
                             </td>
                         </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <button type="button" id="btnSubmit" class="btn btn-primary btn-md pull-left btn-sm" style="margin-right: 4px;">Submit</button>
+                                <button type="button" id="btnView" class="btn btn-primary btn-md pull-left btn-sm" style="margin-right: 4px;">View</button>
+                                <button type="button" id="btnUpdate" class="btn btn-primary btn-md pull-left btn-sm" style="margin-right: 4px;">Update</button>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
-                <button type="button" id="btnSubmit" class="btn btn-primary btn-md pull-right btn-sm">Submit</button>
             </div>
         </body>
     </form>

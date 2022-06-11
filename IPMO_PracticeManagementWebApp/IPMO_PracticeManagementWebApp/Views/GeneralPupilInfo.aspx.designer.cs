@@ -213,30 +213,30 @@ namespace IPMO_PracticeManagementWebApp.Views
         protected global::System.Web.UI.WebControls.TextBox PassportNumberTextBox;
 
         /// <summary>
-        /// GeneralPupilInfoButton control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GeneralPupilInfoButton;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// GeneralPupilInfoViewButton control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GeneralPupilInfoViewButton;
+        protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// GeneralPupilInfoUpdateButton control.
+        /// Button3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GeneralPupilInfoUpdateButton;
+        protected global::System.Web.UI.WebControls.Button Button3;
     }
 }

@@ -58,7 +58,7 @@ namespace IPMO_PracticeManagementWebApp.Views
             Label lbl = new Label();
             lbl.Text = status;
 
-            if (!status.Contains("ERROR"))
+            if (!status.Contains("Error"))
             {
                 lbl.ForeColor = System.Drawing.Color.DarkGreen;
                 lbl.CssClass = "alert alert-success";
@@ -85,7 +85,14 @@ namespace IPMO_PracticeManagementWebApp.Views
             DatabaseQueryManager dqm = new DatabaseQueryManager();
             var data = dqm.QueryToGetDataForField(PassportNumberTextBox.Text.Trim(), "Register Pupil Info");
 
-            PopulateData(data);
+            if (data.Count > 0)
+            {
+                PopulateData(data);
+            }
+            else
+            {
+                ValidationMessage("Error: Registered Pupil Info with the Passport Number Provided was Not Found");
+            }
         }
 
         private void PopulateData(List<FieldModel> data)

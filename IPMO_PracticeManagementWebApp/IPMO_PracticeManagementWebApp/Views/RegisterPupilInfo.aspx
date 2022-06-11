@@ -65,18 +65,16 @@
                     <asp:Label ID="EmailCaretakerLabel" runat="server" Text="Email Caretaker"></asp:Label></h5>
                 <asp:TextBox ID="EmailCaretakerTextBox" runat="server"></asp:TextBox>
             </p>
+            <br />
+            <br />
+            <p>
+                <asp:Button ID="RegisterPupilInfoButton" runat="server" Text="Register" OnClick="RegisterPupilInfoButton_Click" class="btn btn-primary btn-md pull-left btn-sm" Style="margin-right: 4px;" />
+                <asp:Button ID="RegisterPupilInfoViewButton" runat="server" Text="View" OnClick="RegisterPupilInfoViewButton_Click" class="btn btn-primary btn-md pull-left btn-sm" Style="margin-right: 4px;" />
+                <asp:Button ID="RegisterPupilInfoUpdateButton" runat="server" Text="Update" OnClick="RegisterPupilInfoUpdateButton_Click" class="btn btn-primary btn-md pull-left btn-sm" Style="margin-right: 4px;" />
+            </p>
         </asp:PlaceHolder>
-        <p>
-            <asp:Button ID="RegisterPupilInfoButton" runat="server" Text="Register Pupil Info" OnClick="RegisterPupilInfoButton_Click" />
-
-        </p>
-         <p>
-            <asp:Button ID="RegisterPupilInfoViewButton" runat="server" Text="View Registered Pupil Info" OnClick="RegisterPupilInfoViewButton_Click" />
-        </p>
-        <p>
-            <asp:Button ID="RegisterPupilInfoUpdateButton" runat="server" Text="Update Registered Pupil Info" OnClick="RegisterPupilInfoUpdateButton_Click" />
-        </p>
-
+        <br />
+        <br />
     </div>
 
 </asp:Content>

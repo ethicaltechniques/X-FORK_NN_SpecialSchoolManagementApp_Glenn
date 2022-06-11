@@ -18,6 +18,7 @@
             <asp:Button ID="AttachmentButton" runat="server" Text="+Attachment" />
         </p>
         <br />
+
         <asp:PlaceHolder ID="GeneralPupilInfoPlaceHolder" runat="server">
             <p>
                 <h5>
@@ -64,15 +65,15 @@
                     <asp:Label ID="PassportNumberLabel" runat="server" Text="Passport Number"></asp:Label></h5>
                 <asp:TextBox ID="PassportNumberTextBox" runat="server"></asp:TextBox>
             </p>
+            <br />
+            <br />
+            <p>
+                <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="GeneralPupilInfoButton_Click" class="btn btn-primary btn-md pull-left btn-sm" Style="margin-right: 4px;" />
+                <asp:Button ID="Button2" runat="server" Text="View" OnClick="GeneralPupilInfoViewButton_Click" class="btn btn-primary btn-md pull-left btn-sm" Style="margin-right: 4px;" />
+                <asp:Button ID="Button3" runat="server" Text="Update" OnClick="GeneralPupilInfoUpdateButton_Click" class="btn btn-primary btn-md pull-left btn-sm" Style="margin-right: 4px;" />
+            </p>
         </asp:PlaceHolder>
-        <p>
-            <asp:Button ID="GeneralPupilInfoButton" runat="server" Text="Submit General Pupil Info" OnClick="GeneralPupilInfoButton_Click" />
-        </p>
-        <p>
-            <asp:Button ID="GeneralPupilInfoViewButton" runat="server" Text="View General Pupil Info" OnClick="GeneralPupilInfoViewButton_Click" />
-        </p>
-        <p>
-            <asp:Button ID="GeneralPupilInfoUpdateButton" runat="server" Text="Update General Pupil Info" OnClick="GeneralPupilInfoUpdateButton_Click" />
-        </p>
+        <br />
+        <br />
     </div>
 </asp:Content>

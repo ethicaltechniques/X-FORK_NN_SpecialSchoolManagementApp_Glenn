@@ -66,18 +66,16 @@
                     <asp:Label ID="PassportNumberLabel" runat="server" Text="Passport Number"></asp:Label></h5>
                 <asp:TextBox ID="PassportNumberTextBox" runat="server"></asp:TextBox>
             </p>
-
+            <br />
+            <br />
+            <p>
+                <asp:Button ID="ReferringSchoolInfoButton" runat="server" Text="Submit" OnClick="ReferringSchoolInfoButton_Click" class="btn btn-primary btn-md pull-left btn-sm" Style="margin-right: 4px;" />
+                <asp:Button ID="ReferringSchoolInfoViewButton" runat="server" Text="View" OnClick="ReferringSchoolInfoViewButton_Click" class="btn btn-primary btn-md pull-left btn-sm" Style="margin-right: 4px;" />
+                <asp:Button ID="ReferringSchoolInfoUpdateButton" runat="server" Text="Update" OnClick="ReferringSchoolInfoUpdateButton_Click" class="btn btn-primary btn-md pull-left btn-sm" Style="margin-right: 4px;" />
+            </p>
         </asp:PlaceHolder>
-
-        <p>
-            <asp:Button ID="ReferringSchoolInfoButton" runat="server" Text="Submit Referring School Info" OnClick="ReferringSchoolInfoButton_Click" />
-        </p>
-        <p>
-            <asp:Button ID="ReferringSchoolInfoViewButton" runat="server" Text="View Referring School Info" OnClick="ReferringSchoolInfoViewButton_Click" />
-        </p>
-        <p>
-            <asp:Button ID="ReferringSchoolInfoUpdateButton" runat="server" Text="Update Referring School Info" OnClick="ReferringSchoolInfoUpdateButton_Click" />
-        </p>
+        <br />
+        <br />
     </div>
 
 </asp:Content>
