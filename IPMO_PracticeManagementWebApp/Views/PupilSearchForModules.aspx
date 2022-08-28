@@ -70,28 +70,21 @@
                                 }
                                 else {
                                     data = message;
-                                    //$('#thetable tr').not(':first').not(':last').remove();
 
-                                    var htmlValue = '<table id="thetable"><tr><td></td><td><b>FirstName</b></td><td><b>PassportNumber</b></td></tr>';
+                                    var htmlValue = '<table id="thetable" class="table"><tr><td></td><td><b>First Name</b></td><td><b>Passport Number</b></td></tr>';
 
-                                    //<td>Mobile</td><td>Email</td>
 
                                     for (var i = 0; i < data.d.length; i++) {
 
                                         htmlValue += '<tr><td> <input type=\'radio\' name=\'fieldValue\' id=' + data.d[i].PassportNumber + ' /> </td>' +
                                             '<td>' + data.d[i].FirstName +
                                             '</td><td>' + data.d[i].PassportNumber + '</td></tr>';
-                                        //+
-                                        //'</td><td>' + data.d[i].Mobile + '</td></tr>' +
-                                        //'</td><td>' + data.d[i].Email + '</td></tr>';
-
-                                        //$('#thetable tr').first().after(htmlValue);
-
-                                        //$('#thetable').after(htmlValue);
                                     }
 
                                     htmlValue += '</table>';
                                     $('#formSection').append(htmlValue);
+
+                                    htmlValue = '';
 
                                     $("#validationMessage").html('<div class="alert alert-success">Search Results Retrieved Successfully</div>');
                                 }
@@ -112,7 +105,6 @@
                         for (let i of dataForFormName) {
 
                             if (i.checked) {
-                                //console.log(i.id);
                                 formName = i.value;
                             }
                         }
@@ -120,14 +112,11 @@
                         for (let j of dataForUser) {
 
                             if (j.checked) {
-                                //console.log(j.id);
                                 passportNumber = j.id;
                             }
                         }
 
                         var data = [];
-                        //var searchValue = $('#searchValue').val();
-                        //var formName = "General Pupil Info";
 
                         if (searchValue != undefined) {
                             var alldata = {
@@ -159,10 +148,16 @@
                                 }
                                 else {
                                     data = message;
-                                    var formName = data.d[0].FormName.split(' ').join('');
-                                    var pageToLoad = formName;
+                                    var pageToLoad = '';
 
-                                    //  $("#containerForAnotherAspxPage").append('<iframe src=' + pageToLoad + '.aspx></iframe>');
+                                    if (data.d.length > 0) {
+                                        var formName = data.d[0].FormName.split(' ').join('');
+                                        pageToLoad = formName;
+                                    }
+                                    else {
+                                        var formnameArray = getSelectedData();
+                                        pageToLoad = formnameArray[0].FormName.split(' ').join('');
+                                    }
 
                                     $("#myiframe").get(0).contentWindow.location.href = pageToLoad + '.aspx';
                                 }
@@ -210,13 +205,13 @@
                                     </span>
                                     <br />
                                     <span>
-                                        <input type="radio" id="TrackingPupilScore" name="form" value="Tracking Pupil Score" />
+                                        <input type="radio" id="TrackingPupilScore" name="form" value="Tracking Pupil Scores" />
                                         <label for="TrackingPupilScore">Tracking Pupil's Score</label><br />
                                     </span>
                                     <br />
                                     <span>
                                         <input type="radio" id="RegisteringPupilDaily" name="form" value="Registering Pupil Daily Functioning" />
-                                        <label for="RegisteringPupilDaily Functioning">Registering Pupil's Daily Functioning</label><br />
+                                        <label for="RegisteringPupilDailyFunctioning">Registering Pupil's Daily Functioning</label><br />
                                     </span>
                                     <br />
                                     <span>
@@ -255,7 +250,7 @@
                                     </span>
                                     <br />
                                     <span>
-                                        <input type="radio" id="ConclusionImplication" name="form" value="Registration Of Actions And Functioning" />
+                                        <input type="radio" id="ConclusionImplication" name="form" value="Conclusion Implication" />
                                         <label for="ConclusionImplication">Conclusion/Implication</label><br />
                                     </span>
                                     <br />
@@ -263,22 +258,20 @@
                             </tr>
                         </table>
                     </div>
-                    <div id="formSection">
-                        <%--<table id="thetable">
-                             <tr>
-                                <td></td>
-                            </tr>
-                        </table>--%>
+
+                    <div id="containerForAnotherAspxPage" style="width: auto; height: auto">
+                        <iframe id="myiframe" style="width: 120%; height: 100%"></iframe>
+                    </div>
+
+                    <div id="formSection" class="table-responsive">
                     </div>
 
                     <div id="buttonSection">
-                        <input type="button" value="Open Form" onclick="openForm()" />
+                        <input type="button" value="Open Form" onclick="openForm()" class="btn btn-primary btn-md pull-left btn-sm" style="margin-right: 4px;" />
                     </div>
                 </div>
 
-                <div id="containerForAnotherAspxPage" style="width: auto; height: auto">
-                    <iframe id="myiframe" style="width: 65%; height: auto"></iframe>
-                </div>
+
             </body>
     </form>
 </asp:Content>

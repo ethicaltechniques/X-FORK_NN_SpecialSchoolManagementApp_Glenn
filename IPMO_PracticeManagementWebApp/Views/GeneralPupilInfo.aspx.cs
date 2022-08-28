@@ -15,6 +15,8 @@ namespace IPMO_PracticeManagementWebApp.Views
         {
             if (HttpContext.Current.Session["fmList"] != null)
                 PopulateData((List<FieldModel>)HttpContext.Current.Session["fmList"]);
+
+            HttpContext.Current.Session["fmList"] = null;
         }
 
         protected void Unnamed1_SelectionChanged(object sender, EventArgs e)

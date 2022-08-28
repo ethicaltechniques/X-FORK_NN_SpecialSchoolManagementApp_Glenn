@@ -26,6 +26,48 @@
                         $(this).closest("tr").remove();
                     });
 
+                    populateDataFromSession();
+
+                    function populateDataFromSession() {
+
+                        var data = JSON.stringify(getAllData());
+
+                        $.ajax({
+                            url: 'GoalMeans.aspx/GetSessionData',
+                            type: 'POST',
+                            dataType: 'json',
+                            contentType: 'application/json; charset=utf-8',
+                            data: JSON.stringify({ 'allData': data }),
+                            success: function (response) {
+
+                                if (response.d.length > 0) {
+                                    for (let i = 0; i < response.d.length; i++) {
+
+                                        if (response.d[i].FieldName === "Passport Number") {
+                                            $("#passportNumberValue").val(response.d[i].FieldValue);
+                                        }
+                                        else {
+                                            var rowCount = $('.data-contact-person').length + 1;
+                                            var contactdiv = '<tr class="data-contact-person">' +
+                                                '<td><input type="text" name="f-name' + rowCount + '" class="form-control f-name01" value="' + response.d[i].FieldName + '" /></td>' +
+                                                '<td><textarea name="l-name' + rowCount + '" class="form-control l-name01" cols="20" rows="2">' + response.d[i].FieldValue + '</textarea></td>' +
+                                                '<td><button type="button" id="btnDelete" class="deleteContact btn btn btn-danger btn-xs">Remove</button></td>' +
+                                                '</tr>';
+
+                                            $('#maintable').append(contactdiv);
+                                        }
+                                    }
+                                }
+                                else {
+                                    $("#validationMessage").html('<div class="alert alert-danger">There is no pupil with the Passport Number provided</div>');
+                                }
+                            },
+                            error: function (response) {
+                                $("#validationMessage").html('<div class="alert alert-danger">' + response.d + '</div>');
+                            }
+                        });
+                    }
+
                     function getAllData() {
                         var data = [];
                         $('tr.data-contact-person').each(function () {

@@ -54,5 +54,11 @@ namespace IPMO_PracticeManagementWebApp.Views
 
             return status;
         }
+
+        [WebMethod]
+        public static List<FieldModel> GetSessionData(string allData)
+        {
+            return (List<FieldModel>)HttpContext.Current.Session["fmList"];
+        }
     }
 }

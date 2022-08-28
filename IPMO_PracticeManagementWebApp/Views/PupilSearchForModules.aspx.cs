@@ -92,13 +92,5 @@ namespace IPMO_PracticeManagementWebApp.Views
 
             return fmList;
         }
-
-        private void SendDataToAnotherPage(List<FieldModel> fmList, string formName)
-        {
-            HttpContext _context = HttpContext.Current;
-            _context.Items.Add("SearchPageValue", fmList);
-            //Server.Transfer(formName + ".aspx");
-            HttpContext.Current.Response.Redirect("~/" + formName + ".aspx");
-        }
     }
 }

@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Services;
 
 namespace IPMO_PracticeManagementWebApp.Views
@@ -51,5 +52,12 @@ namespace IPMO_PracticeManagementWebApp.Views
 
             return status;
         }
+
+        [WebMethod]
+        public static List<FieldModel> GetSessionData(string allData)
+        {
+            return (List<FieldModel>)HttpContext.Current.Session["fmList"];
+        }
+
     }
 }
