@@ -85,10 +85,34 @@
                         });
                     }
 
+                    //change 2
+                    function getParentFormName() {
+                        var urlParams = new URLSearchParams(window.location.search);
+                        if (urlParams !== undefined && urlParams !== null && urlParams !== '') {
+                            var queryParameterValue = urlParams.toString().split("=")[1];
+
+                            if (queryParameterValue !== undefined) {
+                                return "|" + queryParameterValue;
+                            }
+                            else {
+                                return '';
+                            }
+                        }
+                        else {
+                            return '';
+                        }
+                    }
+
                     function getAllData() {
                         var data = [];
                         var passportNumber = $('#passportNumberValue').val();
                         var formName = "Conclusion Implication";
+
+                        //change 3
+                        var parentFormName = getParentFormName();
+                        if (parentFormName !== '' && parentFormName !== undefined) {
+                            formName = formName + parentFormName;
+                        }
 
                         $('tr.data-contact-person').each(function () {
                             var fieldName = $(this).find('.f-name01').val();

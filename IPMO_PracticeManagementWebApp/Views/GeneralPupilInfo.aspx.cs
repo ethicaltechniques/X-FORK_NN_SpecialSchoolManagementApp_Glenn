@@ -47,13 +47,21 @@ namespace IPMO_PracticeManagementWebApp.Views
             var dic = ql.Zip(qt, (k, v) => new { k, v })
               .ToDictionary(x => x.k, x => x.v);
 
+            //Change 3
+            var formName = "General Pupil Info";
+            var queryStringvalue = Request.QueryString["parent"];
+            if (!string.IsNullOrEmpty(queryStringvalue))
+            {
+                formName = formName + "|" + queryStringvalue;
+            }
+
             foreach (var item in dic)
             {
                 FieldModel fm = new FieldModel();
                 fm.FieldName = item.Key;
                 fm.FieldValue = item.Value;
                 fm.StudentUniqueId = PassportNumberTextBox.Text.Trim();
-                fm.FormName = "General Pupil Info";
+                fm.FormName = formName;//"General Pupil Info";
                 fieldModelList.Add(fm);
             }
 
@@ -92,8 +100,16 @@ namespace IPMO_PracticeManagementWebApp.Views
 
         protected void GeneralPupilInfoViewButton_Click(object sender, EventArgs e)
         {
+            //Change 1
+            var formName = "General Pupil Info";
+            var queryStringvalue = Request.QueryString["parent"];
+            if (!string.IsNullOrEmpty(queryStringvalue))
+            {
+                formName = formName + "|" + queryStringvalue;
+            }
+
             DatabaseQueryManager dqm = new DatabaseQueryManager();
-            var data = dqm.QueryToGetDataForField(PassportNumberTextBox.Text.Trim(), "General Pupil Info");
+            var data = dqm.QueryToGetDataForField(PassportNumberTextBox.Text.Trim(), formName);
 
             if (data.Count > 0)
             {
@@ -165,13 +181,21 @@ namespace IPMO_PracticeManagementWebApp.Views
             var dic = ql.Zip(qt, (k, v) => new { k, v })
               .ToDictionary(x => x.k, x => x.v);
 
+            //Change 1
+            var formName = "General Pupil Info";
+            var queryStringvalue = Request.QueryString["parent"];
+            if (!string.IsNullOrEmpty(queryStringvalue))
+            {
+                formName = formName + "|" + queryStringvalue;
+            }
+
             foreach (var item in dic)
             {
                 FieldModel fm = new FieldModel();
                 fm.FieldName = item.Key;
                 fm.FieldValue = item.Value;
                 fm.StudentUniqueId = PassportNumberTextBox.Text.Trim();
-                fm.FormName = "General Pupil Info";
+                fm.FormName = formName;//"General Pupil Info";
                 fieldModelList.Add(fm);
             }
 

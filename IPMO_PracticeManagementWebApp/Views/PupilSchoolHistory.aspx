@@ -24,7 +24,7 @@
 
                     $(document).on("click", ".deleteContact", function () {
                         $(this).closest("tr").remove();
-                    });
+                    });                   
 
                     populateDataFromSession();
 
@@ -68,6 +68,24 @@
                         });
                     }
 
+                    //change 2
+                    function getParentFormName() {
+                        var urlParams = new URLSearchParams(window.location.search);
+                        if (urlParams !== undefined && urlParams !== null && urlParams !== '') {
+                            var queryParameterValue = urlParams.toString().split("=")[1];
+
+                            if (queryParameterValue !== undefined) {
+                                return "|" + queryParameterValue;
+                            }
+                            else {
+                                return '';
+                            }
+                        }
+                        else {
+                            return '';
+                        }
+                    }
+
                     function getAllData() {
                         var data = [];
                         $('tr.data-contact-person').each(function () {
@@ -75,6 +93,12 @@
                             var fieldValue = $(this).find('.l-name01').val();
                             var passportNumber = $('#passportNumberValue').val();
                             var formName = "Pupil School History";
+
+                            //change 3
+                            var parentFormName = getParentFormName();
+                            if (parentFormName !== '' && parentFormName !== undefined) {
+                                formName = formName + parentFormName;
+                            }
 
                             var alldata = {
                                 'FieldName': fieldName,
