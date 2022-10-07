@@ -11,7 +11,6 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
         private SqlConnection Conn;
         private void CreateConnection()
         {
-            //string ConnStr = "Server=tcp:ipmo-practicemanagementsever.database.windows.net,1433;Initial Catalog=IPMO_PracticeManagementDB;Persist Security Info=False;User ID=Glenn;Password=Isena@12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             string ConnStr = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString.ToString();
 
             Conn = new SqlConnection(ConnStr);
