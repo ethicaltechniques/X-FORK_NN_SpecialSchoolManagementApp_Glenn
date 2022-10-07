@@ -9,7 +9,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
-    <NameOfLastUsedPublishProfile>C:\Users\sudip\source\repos\IPMO_PracticeManagementWebApp\IPMO_PracticeManagementWebApp\Properties\PublishProfiles\IPMOPracticeManagement - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\sudip\source\repos\IPMO_PracticeManagementWebApp\IPMO_PracticeManagementWebApp\Properties\PublishProfiles\IPMOPracticeManagementWebApp - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

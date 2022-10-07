@@ -3,6 +3,13 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <h1>IPMO Practice Management</h1>
         <p class="lead">IPMO Practice Management is an Web applications using ASP.NET, HTML, Javascript and C#.</p>
         <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>

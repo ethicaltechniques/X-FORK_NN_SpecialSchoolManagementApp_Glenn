@@ -1,5 +1,6 @@
 ﻿using IPMO_PracticeManagementWebApp.Model;
 using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,8 +11,9 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
         private SqlConnection Conn;
         private void CreateConnection()
         {
-            string ConnStr = "Server=tcp:ipmo-practicemanagementsever.database.windows.net,1433;Initial Catalog=IPMO_PracticeManagementDB;Persist Security Info=False;User ID=Glenn;Password=Isena@12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            // ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            //string ConnStr = "Server=tcp:ipmo-practicemanagementsever.database.windows.net,1433;Initial Catalog=IPMO_PracticeManagementDB;Persist Security Info=False;User ID=Glenn;Password=Isena@12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string ConnStr = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString.ToString();
+
             Conn = new SqlConnection(ConnStr);
         }
 
@@ -43,7 +45,7 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
         public string AddUpdateDeleteData(string dbQuery)
         {
             CreateConnection();
-            var comm = new SqlCommand(dbQuery,Conn);
+            var comm = new SqlCommand(dbQuery, Conn);
             try
             {
                 Conn.Open();

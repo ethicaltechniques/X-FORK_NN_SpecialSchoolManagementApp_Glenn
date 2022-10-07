@@ -25,6 +25,28 @@ namespace IPMO_PracticeManagementWebApp.Utility
 
             return tr;
         }
+        public HtmlGenericControl CreateDynamicTextboxAndTextArea(/*string _TextBoxId*/)
+        {
+            HtmlGenericControl tr = new HtmlGenericControl("tr");
+            HtmlGenericControl td1 = new HtmlGenericControl("td");
+
+            TextBox lbl = new TextBox();
+            //lbl.ID = "lbl" + _TextBoxId.Replace(" ", "").ToLower();
+            // lbl.Text = _TextBoxId;
+            td1.Controls.Add(lbl);
+            tr.Controls.Add(td1);
+
+            HtmlGenericControl td2 = new HtmlGenericControl("td");
+            TextBox txtBox = new TextBox();
+            //txtBox.ID = _TextBoxId.Replace(" ", "").ToLower();
+            txtBox.TextMode = TextBoxMode.MultiLine;
+            txtBox.Rows = 2;
+            txtBox.Columns = 20;
+            td2.Controls.Add(txtBox);
+            tr.Controls.Add(td2);
+
+            return tr;
+        }
 
         public HtmlGenericControl CreateDynamicDropdownList(string _ddlId)
         {

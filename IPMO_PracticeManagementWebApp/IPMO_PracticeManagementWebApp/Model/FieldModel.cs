@@ -10,6 +10,7 @@ namespace IPMO_PracticeManagementWebApp.Model
         public string FieldName { get; set; }
         public string FieldValue { get; set; }
         public string StudentUniqueId { get; set; }
+        public string FormName { get; set; }
 
     }
 }

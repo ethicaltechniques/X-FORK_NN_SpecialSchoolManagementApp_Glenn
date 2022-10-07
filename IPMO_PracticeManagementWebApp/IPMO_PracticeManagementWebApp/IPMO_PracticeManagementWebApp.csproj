@@ -125,6 +125,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\IPMOPracticeManagement - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\IPMOPracticeManagementWebApp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -156,9 +157,24 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\ConclusionImplication.aspx" />
+    <Content Include="Views\GeneralPupilInfo.aspx" />
+    <Content Include="Views\GoalMeans.aspx" />
+    <Content Include="Views\ProtectiveRiskFactors.aspx" />
+    <Content Include="Views\PupilAidHistory.aspx" />
+    <Content Include="Views\PupilSchoolHistory.aspx" />
+    <Content Include="Views\PupilSearchForModules.aspx" />
+    <Content Include="Views\ReferringSchoolInfo.aspx" />
+    <Content Include="Views\RegisteringPupilDailyFunctioning.aspx" />
     <Content Include="Views\RegisterPupil.aspx" />
+    <Content Include="Views\RegisterPupilInfo.aspx" />
+    <Content Include="Views\RegistrationOfActionsAndFunctioning.aspx" />
+    <Content Include="Views\ResultsAppliedMeans.aspx" />
     <Content Include="Views\RiskFactors.aspx" />
     <Content Include="Views\SchoolResults.aspx" />
+    <Content Include="Views\SigningUp.aspx" />
+    <Content Include="Views\TrackingPupilScores.aspx" />
+    <Content Include="Views\UploadApplicationInfo.aspx" />
     <Content Include="Views\ViewPupilData.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -193,9 +209,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\FieldModel.cs" />
     <Compile Include="Model\PupilInformation.cs" />
     <Compile Include="Model\SchoolResults.cs" />
     <Compile Include="Model\RiskFactors.cs" />
+    <Compile Include="Model\SearchModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -211,6 +229,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Utility\UiUtility.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,12 +237,96 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ConclusionImplication.aspx.cs">
+      <DependentUpon>ConclusionImplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ConclusionImplication.aspx.designer.cs">
+      <DependentUpon>ConclusionImplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeneralPupilInfo.aspx.cs">
+      <DependentUpon>GeneralPupilInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\GeneralPupilInfo.aspx.designer.cs">
+      <DependentUpon>GeneralPupilInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GoalMeans.aspx.cs">
+      <DependentUpon>GoalMeans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\GoalMeans.aspx.designer.cs">
+      <DependentUpon>GoalMeans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProtectiveRiskFactors.aspx.cs">
+      <DependentUpon>ProtectiveRiskFactors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ProtectiveRiskFactors.aspx.designer.cs">
+      <DependentUpon>ProtectiveRiskFactors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PupilAidHistory.aspx.cs">
+      <DependentUpon>PupilAidHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PupilAidHistory.aspx.designer.cs">
+      <DependentUpon>PupilAidHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PupilSchoolHistory.aspx.cs">
+      <DependentUpon>PupilSchoolHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PupilSchoolHistory.aspx.designer.cs">
+      <DependentUpon>PupilSchoolHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PupilSearchForModules.aspx.cs">
+      <DependentUpon>PupilSearchForModules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PupilSearchForModules.aspx.designer.cs">
+      <DependentUpon>PupilSearchForModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReferringSchoolInfo.aspx.cs">
+      <DependentUpon>ReferringSchoolInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ReferringSchoolInfo.aspx.designer.cs">
+      <DependentUpon>ReferringSchoolInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisteringPupilDailyFunctioning.aspx.cs">
+      <DependentUpon>RegisteringPupilDailyFunctioning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\RegisteringPupilDailyFunctioning.aspx.designer.cs">
+      <DependentUpon>RegisteringPupilDailyFunctioning.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\RegisterPupil.aspx.cs">
       <DependentUpon>RegisterPupil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\RegisterPupil.aspx.designer.cs">
       <DependentUpon>RegisterPupil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterPupilInfo.aspx.cs">
+      <DependentUpon>RegisterPupilInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\RegisterPupilInfo.aspx.designer.cs">
+      <DependentUpon>RegisterPupilInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationOfActionsAndFunctioning.aspx.cs">
+      <DependentUpon>RegistrationOfActionsAndFunctioning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\RegistrationOfActionsAndFunctioning.aspx.designer.cs">
+      <DependentUpon>RegistrationOfActionsAndFunctioning.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResultsAppliedMeans.aspx.cs">
+      <DependentUpon>ResultsAppliedMeans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ResultsAppliedMeans.aspx.designer.cs">
+      <DependentUpon>ResultsAppliedMeans.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RiskFactors.aspx.cs">
       <DependentUpon>RiskFactors.aspx</DependentUpon>
@@ -238,6 +341,27 @@
     </Compile>
     <Compile Include="Views\SchoolResults.aspx.designer.cs">
       <DependentUpon>SchoolResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SigningUp.aspx.cs">
+      <DependentUpon>SigningUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SigningUp.aspx.designer.cs">
+      <DependentUpon>SigningUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrackingPupilScores.aspx.cs">
+      <DependentUpon>TrackingPupilScores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TrackingPupilScores.aspx.designer.cs">
+      <DependentUpon>TrackingPupilScores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UploadApplicationInfo.aspx.cs">
+      <DependentUpon>UploadApplicationInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UploadApplicationInfo.aspx.designer.cs">
+      <DependentUpon>UploadApplicationInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewPupilData.aspx.cs">
       <DependentUpon>ViewPupilData.aspx</DependentUpon>

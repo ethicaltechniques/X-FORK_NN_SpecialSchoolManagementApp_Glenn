@@ -39,7 +39,10 @@ namespace IPMO_PracticeManagementWebApp.Views
 
             DatabaseQueryManager dqm = new DatabaseQueryManager();
             var passportNumber = fieldList.FirstOrDefault().FieldName == "Passport Number" ? fieldList.FirstOrDefault().FieldValue : string.Empty;
-            fmList = dqm.QueryToGetDataForField(passportNumber, "Protective Risk Factor");
+
+            //change 1
+            var formName = (fieldList != null && fieldList.Count() == 0) ? String.Empty : fieldList.FirstOrDefault().FormName;
+            fmList = dqm.QueryToGetDataForField(passportNumber, formName);
 
             return fmList;
         }
@@ -53,6 +56,12 @@ namespace IPMO_PracticeManagementWebApp.Views
             var status = dqm.QueryToAddUpdateDeleteDataForField(fieldList, "Update");
 
             return status;
+        }
+
+        [WebMethod]
+        public static List<FieldModel> GetSessionData(string allData)
+        {
+            return (List<FieldModel>)HttpContext.Current.Session["fmList"];
         }
     }
 }

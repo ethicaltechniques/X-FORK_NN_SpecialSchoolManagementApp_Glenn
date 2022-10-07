@@ -193,5 +193,44 @@ namespace IPMO_PracticeManagementWebApp.DataLayer
 
             return fieldNameAndValue;
         }
+
+        public List<FieldModel> QueryToSearchData(string searchTerm, string formName)
+        {
+            List<FieldModel> fieldNameAndValue = new List<FieldModel>();
+
+            var query = "select * from IpmoInformation where FieldValue = '" + searchTerm + "' and FormName = '" + formName + "'";
+            var infoDataTable = databaseManager.GetInformationHeaders(query);
+
+            fieldNameAndValue = (from rw in infoDataTable.AsEnumerable()
+                                 select new FieldModel
+                                 {
+                                     FieldName = Convert.ToString(rw["FieldName"]),
+                                     FieldValue = Convert.ToString(rw["FieldValue"]),
+                                     StudentUniqueId = Convert.ToString(rw["StudentUniqueId"]),
+                                     FormName = Convert.ToString(rw["FormName"])
+                                 }).ToList<FieldModel>();
+
+            return fieldNameAndValue;
+        }
+
+        public List<FieldModel> QueryToSearchFormData(string searchTerm, string formName)
+        {
+            List<FieldModel> fieldNameAndValue = new List<FieldModel>();
+
+            var query = "select * from IpmoInformation where StudentUniqueId = '" + searchTerm + "' and FormName = '" + formName + "'";
+            var infoDataTable = databaseManager.GetInformationHeaders(query);
+
+            fieldNameAndValue = (from rw in infoDataTable.AsEnumerable()
+                                 select new FieldModel
+                                 {
+                                     FieldName = Convert.ToString(rw["FieldName"]),
+                                     FieldValue = Convert.ToString(rw["FieldValue"]),
+                                     StudentUniqueId = Convert.ToString(rw["StudentUniqueId"]),
+                                     FormName = Convert.ToString(rw["FormName"])
+                                 }).ToList<FieldModel>();
+
+            return fieldNameAndValue;
+        }
+
     }
 }

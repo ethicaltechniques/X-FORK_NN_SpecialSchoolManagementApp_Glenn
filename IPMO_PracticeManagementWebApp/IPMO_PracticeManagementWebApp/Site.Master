@@ -48,19 +48,25 @@
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">IPMO Application</a>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <%--<li><a runat="server" href="~/Views/RegisterPupil.aspx">Register Pupil</a></li>
+
+                <%--<li><a runat="server" href="~/Views/RegisterPupil.aspx">Register Pupil</a></li>
                         <li><a runat="server" href="~/Views/RiskFactors.aspx">Risk Factors</a></li>
                         <li><a runat="server" href="~/Views/SchoolResults.aspx">School Results</a></li>
                         <li><a runat="server" href="~/Views/ViewPupilData.aspx">View Pupil Data</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>--%>
 
+
+                <%--<div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                       
                         <li><a runat="server" href="~/Views/UploadApplicationInfo.aspx">Upload Application Info</a></li>
+                        <li><a runat="server" href="~/Views/SigningUp.aspx">Signing Up</a></li>
                         <li><a runat="server" href="~/Views/GeneralPupilInfo.aspx">General Pupil Info</a></li>
                         <li><a runat="server" href="~/Views/RegisterPupilInfo.aspx">Register Pupil Info</a></li>
+                        <li><a runat="server" href="~/Views/TrackingPupilScores.aspx">Tracking Pupil's Score</a></li>
+                        <li><a runat="server" href="~/Views/RegisteringPupilDailyFunctioning.aspx">Registering Pupil's Daily Functioning</a></li>
                         <li><a runat="server" href="~/Views/ReferringSchoolInfo.aspx">Referring School Info</a></li>
                         <li><a runat="server" href="~/Views/PupilSchoolHistory.aspx">Pupil School History</a></li>
                         <li><a runat="server" href="~/Views/PupilAidHistory.aspx">Pupil Aid History</a></li>
@@ -69,6 +75,56 @@
                         <li><a runat="server" href="~/Views/RegistrationOfActionsAndFunctioning.aspx">Registration Of Actions And Functioning</a></li>
                         <li><a runat="server" href="~/Views/ResultsAppliedMeans.aspx">Results Applied Means</a></li>
                         <li><a runat="server" href="~/Views/ConclusionImplication.aspx">Conclusion/Implication</a></li>
+                        <li><a runat="server" href="~/Views/PupilSearchForModules.aspx">Pupil Search</a></li>
+                    </ul>
+                </div>--%>
+
+                <%--<ul class="dropdown-menu sub-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a>Nav header</a></li>
+                                        <li><a href="#">One more separated link</a></li>
+                                    </ul>--%>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">OPP</a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="Views/UploadApplicationInfo.aspx?parent=OPP">Upload Files <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/SigningUp.aspx?parent=OPP">Pupil Info <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/PupilSchoolHistory.aspx?parent=OPP">History <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/GoalMeans.aspx?parent=OPP">Problems, Goals and Means <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/ResultsAppliedMeans.aspx?parent=OPP">Results <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/ConclusionImplication.aspx?parent=OPP">Conclusions And Implications <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/GeneralPupilInfo.aspx?parent=OPP">General Info For Signing <span class="caret"></span></a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Module Signing Up A Pupil</a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="Views/UploadApplicationInfo.aspx?parent=Module Signing Up A Pupil">Upload Files <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/SigningUp.aspx?parent=Module Signing Up A Pupil">Pupil Info <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/PupilSchoolHistory.aspx?parent=Module Signing Up A Pupil">History <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/ResultsAppliedMeans.aspx?parent=Module Signing Up A Pupil">Results <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/PupilAidHistory.aspx?parent=Module Signing Up A Pupil">Pupil Aid History <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/ProtectiveRiskFactors.aspx?parent=Module Signing Up A Pupil">Risc And Protective Factor <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/GoalMeans.aspx?parent=Module Signing Up A Pupil">Goals And Means <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/RegistrationOfActionsAndFunctioning.aspx?parent=Module Signing Up A Pupil">Register Pupil's Functioning <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/ResultsAppliedMeans.aspx?parent=Module Signing Up A Pupil">Results Of Applied Means <span class="caret"></span></a></li>
+                                <li><a runat="server" href="Views/ConclusionImplication.aspx?parent=Module Signing Up A Pupil">Conclusions And Implications <span class="caret"></span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a runat="server" href="~/Views/RegisteringPupilDailyFunctioning.aspx">Tracking Pupil Behaviour And Externals</a>
+                        </li>
+                        <li>
+                            <a runat="server" href="Views/TrackingPupilScores.aspx">Tracking Pupil Scores</a>
+                        </li>
+                        <li>
+                            <a runat="server" href="~/Views/PupilSearchForModules.aspx">Pupil Search</a>
+                        </li>
                     </ul>
                 </div>
             </div>

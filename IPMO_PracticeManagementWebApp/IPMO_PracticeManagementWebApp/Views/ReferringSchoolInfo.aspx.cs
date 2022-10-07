@@ -3,6 +3,7 @@ using IPMO_PracticeManagementWebApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,7 +13,10 @@ namespace IPMO_PracticeManagementWebApp.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (HttpContext.Current.Session["fmList"] != null)
+                PopulateData((List<FieldModel>)HttpContext.Current.Session["fmList"]);
 
+            HttpContext.Current.Session["fmList"] = null;
         }
 
         protected void ReferringSchoolInfoButton_Click(object sender, EventArgs e)
