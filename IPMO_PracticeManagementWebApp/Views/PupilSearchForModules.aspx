@@ -38,7 +38,13 @@
                     function getAllData() {
                         var data = [];
                         var searchValue = $('#searchValue').val();
-                        var formName = "General Pupil Info";
+                        var formName = ''; //"General Pupil Info";
+
+                        //Change 4
+                        var selectedOptionParent = $("input:radio[name=parentForm]:checked").val();
+                        var selectedOptionChild = $("input:radio[name=form]:checked").val();
+
+                        formName = selectedOptionChild + "|" + selectedOptionParent;
 
                         if (searchValue != undefined) {
                             var alldata = {
@@ -99,13 +105,23 @@
 
                         var formName = '';
                         var passportNumber = '';
-                        var dataForFormName = document.getElementsByName('form');
+                        //Change 2
+                        var dataForParentFormName = document.getElementsByName('parentForm');
+                        var dataForChildFormName = document.getElementsByName('form');
                         var dataForUser = document.getElementsByName('fieldValue');
 
-                        for (let i of dataForFormName) {
+                        for (let i of dataForChildFormName) {
 
                             if (i.checked) {
                                 formName = i.value;
+                            }
+                        }
+
+                        //Change 3
+                        for (let i of dataForParentFormName) {
+
+                            if (i.checked) {
+                                formName = formName + "|" + i.value;
                             }
                         }
 
@@ -159,7 +175,15 @@
                                         pageToLoad = formnameArray[0].FormName.split(' ').join('');
                                     }
 
-                                    $("#myiframe").get(0).contentWindow.location.href = pageToLoad + '.aspx';
+                                    var pageName = pageToLoad.split('|')[0];
+                                    var parentPageName = pageToLoad.split('|')[1];
+
+                                    if (pageName !== undefined && parentPageName !== undefined) {
+                                        $("#myiframe").get(0).contentWindow.location.href = pageName + '.aspx?parent=' + parentPageName;
+                                    }
+                                    else {
+                                        $("#myiframe").get(0).contentWindow.location.href = pageToLoad + '.aspx';
+                                    }
                                 }
                             },
                             error: function (message) {
@@ -196,8 +220,29 @@
                                     <button type="button" onclick="loadPupilData()" id="searchButton" class="btn btn-primary btn-md pull-left btn-sm" style="margin-right: 4px;">Search</button>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
+                                    <br />
+                                    <span><b>Parent Menu</b></span><br />
+                                    <br />
+                                    <span>
+                                        <input type="radio" id="OPP" name="parentForm" value="OPP" />
+                                        <label for="OPP">OPP</label><br />
+                                    </span>
+                                    <br />
+                                    <span>
+                                        <input type="radio" id="ModuleSigningUpAPupil" name="parentForm" value="Module Signing Up A Pupil" />
+                                        <label for="ModuleSigningUpAPupil">Module Signing Up A Pupil</label><br />
+                                    </span>
+                                    <br />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <br />
+                                    <span><b>Sub Menu</b></span><br />
                                     <br />
                                     <span>
                                         <input type="radio" id="GeneralPupilInfo" name="form" value="General Pupil Info" />

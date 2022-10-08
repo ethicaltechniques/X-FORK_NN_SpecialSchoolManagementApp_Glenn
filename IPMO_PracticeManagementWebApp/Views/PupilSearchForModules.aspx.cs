@@ -33,7 +33,9 @@ namespace IPMO_PracticeManagementWebApp.Views
 
             if (!searchTerm.Equals(String.Empty))
             {
-                fmList = dqm.QueryToSearchData(searchTerm, "General Pupil Info");
+                //Change 1
+                var formName = fieldList.FirstOrDefault().FormName.Trim();
+                fmList = dqm.QueryToSearchData(searchTerm, formName /*"General Pupil Info"*/);
 
                 var fmGroup = fmList.GroupBy(x => x.StudentUniqueId).ToList();
 
